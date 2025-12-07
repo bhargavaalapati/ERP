@@ -1,0 +1,110 @@
+-- USERS & AUTH
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT 'Project Manager',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE audit_logs (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    action TEXT NOT NULL,
+    details TEXT,
+    ip_address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- INVENTORY
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    stock_quantity INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CONSTRUCTION
+CREATE TABLE projects (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    location TEXT,
+    budget DECIMAL(12,2) NOT NULL,
+    status TEXT DEFAULT 'Active',
+    start_date DATE,
+    end_date DATE,
+    actual_spend DECIMAL(12,2) DEFAULT 0,
+    completion_percentage INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE vendors (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    contact_email TEXT,
+    phone TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- FINANCE (AR/AP & ORDERS)
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    product_id INT REFERENCES products(id) ON DELETE SET NULL,
+    quantity INT NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    status TEXT DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE invoices (
+    id SERIAL PRIMARY KEY,
+    project_id INT REFERENCES projects(id) ON DELETE CASCADE,
+    vendor_name TEXT, -- Simplified from ID for prototype
+    description TEXT,
+    amount DECIMAL(12,2) NOT NULL,
+    type TEXT NOT NULL, -- 'Payable' or 'Receivable'
+    status TEXT DEFAULT 'Pending',
+    due_date DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- GENERAL LEDGER
+CREATE TABLE accounts (
+    id SERIAL PRIMARY KEY,
+    code TEXT UNIQUE NOT NULL,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL, 
+    balance DECIMAL(12,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE journal_entries (
+    id SERIAL PRIMARY KEY,
+    date DATE NOT NULL,
+    description TEXT NOT NULL,
+    reference TEXT,
+    status TEXT DEFAULT 'Draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE journal_lines (
+    id SERIAL PRIMARY KEY,
+    entry_id INT REFERENCES journal_entries(id) ON DELETE CASCADE,
+    account_id INT REFERENCES accounts(id) ON DELETE CASCADE,
+    debit DECIMAL(12,2) DEFAULT 0,
+    credit DECIMAL(12,2) DEFAULT 0
+);
+
+-- SEED DATA
+INSERT INTO accounts (code, name, type) VALUES
+('101', 'Cash Bank', 'Asset'),
+('102', 'Accounts Receivable', 'Asset'),
+('201', 'Accounts Payable', 'Liability'),
+('301', 'Owner Equity', 'Equity'),
+('401', 'Construction Revenue', 'Revenue'),
+('501', 'Material Expense', 'Expense');
