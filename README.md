@@ -58,13 +58,29 @@ A full-stack Enterprise Resource Planning (ERP) system designed for the Construc
 
 ## 📸 Screenshots
 
-|                                  **Dashboard**                                   |                             **AI Risk Analysis**                              |
-| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| ![Dashboard Screenshot](https://via.placeholder.com/400x200?text=Dashboard+KPIs) | ![AI Risk Screenshot](https://via.placeholder.com/400x200?text=AI+Risk+Score) |
+### 1. Dashboard
+*Real-time overview of KPIs, total products, orders, and low stock alerts.*
+![Dashboard Screenshot](https://github.com/user-attachments/assets/b90f2ef2-9e31-4b53-a5a6-eea6563ae690)
 
-|                            **General Ledger**                            |                               **Finance Charts**                                |
-| :----------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
-| ![GL Screenshot](https://via.placeholder.com/400x200?text=Journal+Entry) | ![Finance Screenshot](https://via.placeholder.com/400x200?text=Cash+Flow+Chart) |
+<br>
+
+### 2. AI Risk Analysis
+*Predictive insights showing project risk scores based on budget and schedule data.*
+![AI Risk Screenshot](https://github.com/user-attachments/assets/9aafa386-8401-46ea-8d38-884b7e455d61)
+
+<br>
+
+### 3. Inventory Management
+*Track stock levels, prices, and categories in real-time.*
+![Inventory Screenshot](https://github.com/user-attachments/assets/9b4073ba-0e23-431a-913e-dd759fa89b6c)
+
+<br>
+
+### 4. Financial Dashboard
+*Visual breakdown of Income vs. Expenses and Project Budget performance.*
+![Finance Screenshot](https://github.com/user-attachments/assets/e4608f40-9366-43ad-9f72-2e1af7c73e05)
+
+<br>
 
 ---
 
@@ -160,6 +176,4 @@ The **Predictive Risk Score** is calculated in real-time (`/api/ai/risk/:id`) us
 
 Developed by **[Alapati and Gemini AI Pro 3.5V]** for the Full Stack Developer Assignment.
 
-```
 
-```
