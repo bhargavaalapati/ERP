@@ -63,7 +63,7 @@ const Layout = () => {
             {/* Logo Area */}
             <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2 }}>
                  <Typography variant="h6" noWrap component="div" fontWeight="bold" color="primary">
-                    DEVOPOD ERP
+                    ERP&Finance
                 </Typography>
             </Toolbar>
             <Divider />
