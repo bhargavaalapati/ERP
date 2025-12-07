@@ -60,11 +60,15 @@ A full-stack Enterprise Resource Planning (ERP) system designed for the Construc
 
 |                                  **Dashboard**                                   |                             **AI Risk Analysis**                              |
 | :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| ![Dashboard Screenshot](https://via.placeholder.com/400x200?text=Dashboard+KPIs) | ![AI Risk Screenshot](https://via.placeholder.com/400x200?text=AI+Risk+Score) |
+| ![Dashboard Screenshot](<img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/b90f2ef2-9e31-4b53-a5a6-eea6563ae690" />
+) | ![AI Risk Screenshot](<img width="1919" height="936" alt="image" src="https://github.com/user-attachments/assets/9aafa386-8401-46ea-8d38-884b7e455d61" />
+) |
 
 |                            **General Ledger**                            |                               **Finance Charts**                                |
 | :----------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
-| ![GL Screenshot](https://via.placeholder.com/400x200?text=Journal+Entry) | ![Finance Screenshot](https://via.placeholder.com/400x200?text=Cash+Flow+Chart) |
+| ![GL Screenshot](<img width="1917" height="935" alt="image" src="https://github.com/user-attachments/assets/9b4073ba-0e23-431a-913e-dd759fa89b6c" />
+) | ![Finance Screenshot](<img width="1919" height="935" alt="image" src="https://github.com/user-attachments/assets/e4608f40-9366-43ad-9f72-2e1af7c73e05" />
+) |
 
 ---
 
@@ -160,6 +164,3 @@ The **Predictive Risk Score** is calculated in real-time (`/api/ai/risk/:id`) us
 
 Developed by **[Alapati and Gemini AI Pro 3.5V]** for the Full Stack Developer Assignment.
 
-```
-
-```
